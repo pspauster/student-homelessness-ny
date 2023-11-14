@@ -2,6 +2,7 @@ library(tidyverse)
 library(openxlsx)
 library(janitor)
 library(rvest)
+library(RSocrata)
 
 
 twenty_two <- read.xlsx("https://www.nysteachs.org/_files/ugd/60b30b_00435aa177c149e7b752abe2180d7de2.xlsx?dn=INF_SED_SIRS2021-22_111422.xlsx",
@@ -70,4 +71,6 @@ read_teachs_sum <- function(link) {
 }
 
 student_homelessness_time <- map_dfr(.x = links[0:9], .f = ~read_teachs_sum(.x))
+
+#look at charters only
 
